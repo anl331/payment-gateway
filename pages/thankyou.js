@@ -14,7 +14,7 @@ function Thankyou() {
     <Player
       autoplay
       keepLastFrame
-      src="https://lottie.host/ba779155-bd2f-459f-bd04-edb2a6fc02fb/IsKgFNVTsc.json"
+      src="https://assets4.lottiefiles.com/packages/lf20_VKF83wmv1k.json"
       style={{ height: '600px', width: '600px' }}
     ></Player>
   </div>;
