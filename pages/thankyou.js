@@ -10,7 +10,7 @@ function Thankyou() {
     // router.replace("/thankyou", undefined, { shallow: true })
   }, [router, router.isReady])
 
-  return <div className="flex justify-center items-center h-[100svh] sm:h-screen">
+  return <div className="flex justify-center items-center h-[100svh] sm:h-screen overflow-hidden">
     <Player
       autoplay
       keepLastFrame
