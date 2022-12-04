@@ -76,7 +76,7 @@ export default function CheckoutForm({amount, description}) {
   return (
     <form className="w-screen sm:w-[512px] max-w-lg  p-5 rounded-lg overflow-y" onSubmit={handleSubmit}>
       {enabled ? (
-              <div className=" bg-[#2C313A] my-5 p-3 rounded-lg  divide-y divide-yellow-500 space-y-2">
+              <div className=" bg-[#2D3139] my-5 p-3 rounded-lg  divide-y divide-yellow-500 space-y-2">
               <div>
                 <h1 className="text-base font-bold sm:font-normal sm:text-lg">{description ? 'Payment for ' + description : 'No services selected...'} </h1>
               </div>
@@ -98,6 +98,10 @@ export default function CheckoutForm({amount, description}) {
           <span id="button-text">{isLoading ? <div className="spinner-border animate-spin inline-block w-5 h-5 border-4 rounded-full" /> : "Pay now"}</span>
         </button>
       ) : null}
+      <div className="text-xs pt-3 float-right flex space-x-[0.35rem]">
+        <p className=" ">Powered By</p>
+        <img src="./img/stripe.png" alt="" className="h-4"/>
+      </div>
     </form>
   );
 }
