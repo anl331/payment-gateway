@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PaymentElement, useStripe, useElements, AddressElement } from "@stripe/react-stripe-js";
 import { getBaseUrl } from "nextjs-url";
+import Image from "next/image";
 
 export default function CheckoutForm({ amount, description }) {
   const stripe = useStripe();
@@ -97,7 +98,7 @@ export default function CheckoutForm({ amount, description }) {
           </button>
           <div className="text-xs pt-3 float-right flex space-x-[0.35rem]">
             <p className=" ">Powered By</p>
-            <img src="./img/stripe.png" alt="" className="h-4" />
+            <Image  src="/img/stripe.png" height={10} width={38} alt="Stripe logo" />
           </div>
         </>
       ) : null}
