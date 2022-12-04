@@ -22,18 +22,21 @@ export default function Home() {
     setAmount(router.query.amount)
     setDescription(router.query.description)
 
+  }, [router.isReady, router.query, amount]);
 
+  useEffect(() => {
     axios.post('/api/create-payment-intent', {
       amount
     })
-      .then((res) => {
+      .then(async (res) => {
         setClientSecret(res.data.clientSecret);
       })
       .catch((err) => {
         console.log(err.message);
+        return {error: {message: err.message}};
       });
 
-  }, [router.isReady, router.query, amount]);
+  }, [amount]);
 
   const itemData = {
     amount,
