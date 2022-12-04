@@ -70,7 +70,7 @@ export default function CheckoutForm({amount, description}) {
 
   const paymentElementOptions = {
     layout: "tabs",
-    paymentMethodOrder: ['apple_pay', 'google_pay', 'card']
+    paymentMethodOrder: ['card', 'apple_pay', 'google_pay', ]
   };
 
   return (
