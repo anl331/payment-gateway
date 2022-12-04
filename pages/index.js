@@ -7,7 +7,6 @@ import axios from "axios";
 
 import CheckoutForm from "../components/CheckoutForm";
 
-// This is your test publishable API key.
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 export default function Home() {
@@ -19,13 +18,11 @@ export default function Home() {
 
 
   useEffect(() => {
-    // Checks for url query parameters.
     if (!router.isReady) return;
     setAmount(router.query.amount)
     setDescription(router.query.description)
 
 
-    // Create PaymentIntent as soon as the page loads
     axios.post('/api/create-payment-intent', {
       amount
     })

@@ -41,10 +41,6 @@ export default function CheckoutForm({amount, description}) {
     });
   }, [stripe]);
 
-  // const handleConfirm = (message) => {
-  //   router.push('/thankyou');
-  // }
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,7 +54,6 @@ export default function CheckoutForm({amount, description}) {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
         return_url: `${baseUrl}/thankyou`,
       }
     });
@@ -86,7 +81,7 @@ export default function CheckoutForm({amount, description}) {
               </div>
               <div className="flex items-center justify-between pt-2">
                 <h1 className="text-base">{amount && description ? `Total: $${amount}` : "Total: $0.00"}</h1>
-                <h1 className="text-xs">{amount && description ? 'Payable to Alfredo Natal' : null}</h1>
+                <h1 className="text-xs">{amount && description ? `Payable to ${process.env.NEXT_PUBLIC_USER}` : null}</h1>
               </div>
             </div>
       ) : null}
@@ -95,7 +90,6 @@ export default function CheckoutForm({amount, description}) {
 
       <PaymentElement options={paymentElementOptions} onReady={() => setEnabled(true)} />
 
-      {/* Show any error or success messages */}
       <div className="relative text-red-500 italic top-2 text-sm">{message && <span>{message}</span>}</div>
 
       {enabled ? (
@@ -106,7 +100,3 @@ export default function CheckoutForm({amount, description}) {
     </form>
   );
 }
-
-
-//  https://192.168.68.102:3000/thankyou?payment_intent=pi_3MBH7YDGkOWXeHby0Xt0GCrv&payment_intent_client_secret=pi_3MBH7YDGkOWXeHby0Xt0GCrv_secret_5Sk7PXmEOS5hXrg8LC16Dle6v&redirect_status=succeeded
-// 192.168.68.102:3000/thankyou
