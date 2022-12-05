@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PaymentElement, useStripe, useElements, AddressElement } from "@stripe/react-stripe-js";
 import { getBaseUrl } from "nextjs-url";
 import Image from "next/image";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 export default function CheckoutForm({ amount, description }) {
   const stripe = useStripe();
@@ -71,6 +72,10 @@ export default function CheckoutForm({ amount, description }) {
     paymentMethodOrder: ["card", "apple_pay", "google_pay"],
   };
 
+  // if () {
+  //   return <Player autoplay loop src="https://assets8.lottiefiles.com/packages/lf20_okD3jdAzed.json" style={{ height: "150px", width: "150px" }}></Player>;
+  // }
+
   return (
     <form className="w-screen sm:w-[512px] max-w-lg  p-5 rounded-lg overflow-y" onSubmit={handleSubmit}>
       {enabled ? (
@@ -98,7 +103,7 @@ export default function CheckoutForm({ amount, description }) {
           </button>
           <div className="text-xs pt-3 float-right flex space-x-[0.35rem]">
             <p className=" ">Powered By</p>
-            <Image  src="/img/stripe.png" height={10} width={38} alt="Stripe logo" />
+            <Image src="/img/stripe.png" height={10} width={38} alt="Stripe logo" />
           </div>
         </>
       ) : null}

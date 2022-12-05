@@ -12,7 +12,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 export default function Home() {
   const router = useRouter()
   const [clientSecret, setClientSecret] = useState("");
-  const [amount, setAmount] = useState("0")
+  const [amount, setAmount] = useState("")
   const [description, setDescription] = useState("")
 
 
